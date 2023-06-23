@@ -1,3 +1,8 @@
+## Relevant variable descriptions 
+- batch[original_segmentation_maps][0] = the ground truth segmentation maps for the 0th image 
+- batch[predicted_segmentation_maps][0] = performing inference and the predicted seg map from the model for the 0th image
+- you can only do batch[original_segmentation_maps][0] or batch[original_segmentation_maps][1]. that means there are only 2 images in each batch
+
 ## In each dataloader 
 
 pixel_values torch.Size([2, 3, 512, 512]) -> 2 images in each batch, 3 color channels, 512 pixel x 512 
