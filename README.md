@@ -3,6 +3,8 @@
 - batch[predicted_segmentation_maps][0] = performing inference and the predicted seg map from the model for the 0th image
 - you can only do batch[original_segmentation_maps][0] or batch[original_segmentation_maps][1]. that means there are only 2 images in each batch
 
+## Transposing 
+Pytorch typically accesses images in Channel, Height, Width format. Thus, in the Image Dataset class, you'll need to transpose the images like image.transpose(2,0,1). The typical default format in Height, Width, Channel. So 2,0,1 refers to the indexes. 
 ## In each dataloader 
 
 pixel_values torch.Size([2, 3, 512, 512]) -> 2 images in each batch, 3 color channels, 512 pixel x 512 
