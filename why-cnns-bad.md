@@ -18,3 +18,9 @@ Mask classification is a process in which a model predicts a set of binary masks
 
 ## Specific to Cityscapes pretrained
 In the case of semantic segmentation with 19 classes using a pretrained Mask2Former model on Cityscapes dataset, the model would generate 19 binary masks corresponding to each class.
+
+Each pixel in these generated masks would have either a value of 1 (indicating that it belongs to that particular class) or 0 (indicating it does not belong to that class). By combining these individual binary masks together based on their predicted values at each pixel location, we can obtain detailed segmentation results for different objects/classes present in an image.
+
+## BIG IDEA
+By generating separate masks for each category/class, the Mask2Former model can capture these fine-grained details and effectively segment them
+Each position in the input sequence (in this case, an image) to attend to all other positions and learn their relationships.
