@@ -9,6 +9,8 @@ A backbone that extracts lowresolution features from an image. A pixel decoder t
 gradually upsamples low-resolution features from the output of the backbone to generate high-resolution per-pixel
 embeddings. And finally a Transformer decoder that operates on image features to process object queries
 
+Let’s see an example, assuming segmentation_maps = [[2,6,7,9]], the output will contain mask_labels = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]] (four binary masks) and class_labels = [2,6,7,9], the labels for each mask.
+
 ## Relevant variable descriptions 
 - batch[original_segmentation_maps][0] = the ground truth segmentation maps for the 0th image 
 - batch[predicted_segmentation_maps][0] = performing inference and the predicted seg map from the model for the 0th image
