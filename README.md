@@ -1,3 +1,10 @@
+## Mask2Former architecture
+
+Mask2Former adopts the same meta architecture as MaskFormer [14] with a backbone, a
+pixel decoder and a Transformer decoder. We propose a new
+Transformer decoder with masked attention instead of the standard
+cross-attention (Section 3.2.1).
+
 ## Relevant variable descriptions 
 - batch[original_segmentation_maps][0] = the ground truth segmentation maps for the 0th image 
 - batch[predicted_segmentation_maps][0] = performing inference and the predicted seg map from the model for the 0th image
