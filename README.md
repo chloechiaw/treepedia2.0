@@ -5,6 +5,10 @@ pixel decoder and a Transformer decoder. We propose a new
 Transformer decoder with masked attention instead of the standard
 cross-attention (Section 3.2.1).
 
+A backbone that extracts lowresolution features from an image. A pixel decoder that
+gradually upsamples low-resolution features from the output of the backbone to generate high-resolution per-pixel
+embeddings. And finally a Transformer decoder that operates on image features to process object queries
+
 ## Relevant variable descriptions 
 - batch[original_segmentation_maps][0] = the ground truth segmentation maps for the 0th image 
 - batch[predicted_segmentation_maps][0] = performing inference and the predicted seg map from the model for the 0th image
