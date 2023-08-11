@@ -1,5 +1,6 @@
 ## Mask2Former architecture
 
+
 Mask2Former adopts the same meta architecture as MaskFormer [14] with a backbone, a
 pixel decoder and a Transformer decoder. We propose a new
 Transformer decoder with masked attention instead of the standard
@@ -11,6 +12,13 @@ embeddings. And finally a Transformer decoder that operates on image features to
 
 Let’s see an example, assuming segmentation_maps = [[2,6,7,9]], the output will contain mask_labels = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]] (four binary masks) and class_labels = [2,6,7,9], the labels for each mask.
 
+## Important print(model) notes:
+
+In the decoder module: 
+print(model.model._modules["transformer_module"]._modules["decoder"])
+we get the sine embeddings. these are necessary for giving the model some information about the position of tokens in the input sequence. Since the Transformer's self-attention mechanism does not have any inherent notion of token order or position, these embeddings provide necessary context.
+
+These are not trainable, Attention is all you need introduced fixed (non-trainable) sine and cosine positional encodings
 ## Relevant variable descriptions 
 - batch[original_segmentation_maps][0] = the ground truth segmentation maps for the 0th image 
 - batch[predicted_segmentation_maps][0] = performing inference and the predicted seg map from the model for the 0th image
